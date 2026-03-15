@@ -84,6 +84,9 @@ function tick() {
       saveXP();
       updateXP();
       saveSession(); // <-- LOG SESSION
+      distractions = 0;
+      localStorage.setItem("distractions", distractions);
+      updateStats();
       assistantSay("Time to take a break~");
       catImg.src = "cat_sleep.gif";
       play("purr");
@@ -94,6 +97,7 @@ function tick() {
       assistantSay("Break finished~ Ready to focus again?");
       catImg.src = "cat_focus.gif";
       clearInterval(timer);
+      updateStats();
     }
   }
 }
