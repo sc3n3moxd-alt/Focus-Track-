@@ -149,12 +149,12 @@ align-items:center;
 }
 
 /* ===========================
-   MOBILE POLISH: FocusTrack+
-   Applies only on screens ≤600px
+   MOBILE PERFECT LAYOUT
+   Applies only for screens ≤600px
 =========================== */
 @media (max-width:600px){
 
-  /* Center container and adjust spacing */
+  /* Container: stack and center everything */
   .container{
     display:flex;
     flex-direction:column;
@@ -162,84 +162,111 @@ align-items:center;
     justify-content:flex-start;
     width:95%;
     margin:0 auto;
+    gap:10px; /* space between cards, tweak as needed */
+  }
+
+  /* Main card width + spacing */
+  .mainCard{
+    width:100%;
+    max-width:100%;
+    margin-bottom:6px; /* space after main card */
+    padding:12px; /* smaller padding for mobile */
+    text-align:center;
+  }
+
+  /* Stats & other cards width + padding */
+  .card, .statsGrid{
+    width:100%;
+    max-width:100%;
+    padding:10px;
+    margin:0;
+  }
+
+  /* Stats grid: 2 columns on mobile */
+  .statsGrid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:8px;
   }
 
-  /* Main card scales to container width */
-  .mainCard{
-    width:90%;
-    max-width:90%;
-    padding:4px;
-    margin:2px 0;
-    margin-bottom:4px;
-  }
-
-  .card, .statsGrid{
-    width:100%
-    max-width:100%
-  }
-
-}
-
-  /* Stats grid 2 per row */
-  .statsGrid{
-    grid-template-columns:1fr 1fr;
-    gap:6px;
-  }
-
-  /* Header stacks title + button */
+  /* Header & title stacking */
   .header{
     flex-direction:column;
     align-items:center;
     gap:6px;
   }
 
-  /* Day/Night mode button on mobile */
+  /* Day/Night button below title */
   #themeBtn{
     position:static;
     margin-top:4px;
   }
 
-  /* Flower garden space */
+  /* Flower garden space and size */
   #flowerGarden{
-    min-height:80px;
+    min-height:100px; /* enough for flowers without stretching */
   }
 
+  /* Inputs smaller */
   .inputs input{
-    width:45px;
+    width:40px;
   }
 
-  /* Prevent horizontal scroll */
-  body{
-    overflow-x:hidden;
+  /* Timer smaller */
+  #timer{
+    font-size:28px;
   }
 
-  /* Cat assistant size */
-  #assistantCat, #catImg{
-    width:90px;
+  /* Cat assistant */
+  #assistant, #assistantCat{
+    position:fixed;
+    bottom:15px;
+    right:15px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    max-width:90vw;
+  }
+
+  #assistantCat{
+    width:80px; /* scale cat for mobile */
   }
 
   /* Cat assistant speech bubble */
   .bubble{
     max-width:180px;
     font-size:14px;
-    font-family: 'Comic Sans MS';
+    font-family: 'Comic Sans MS', cursive, sans-serif !important; /* force comic sans on mobile */
   }
 
-  /* Timer size */
-  #timer{
-    font-size:28px;
-  }
-
-  /* Inputs width smaller */
-  .inputs input{
-    width:50px;
-  }
-
-  /* Smooth progress bar */
+  /* Smooth progress bar animation */
   #progressBar{
     transition: width 0.9s linear;
   }
+
+.flower{
+  width:55px; /* adjust size */
+  animation: sway 3s ease-in-out infinite alternate, bloom 2s ease-in-out infinite alternate;
+}
+
+@keyframes sway{
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+@keyframes bloom{
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(0.9); }
+}
+
+  /* Prevent horizontal scroll */
+  body{
+    overflow-x:hidden;
+  }
+
+}
 
 
 
