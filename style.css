@@ -167,9 +167,10 @@ align-items:center;
     align-items:center;
     justify-content:center;
     width:95%;
+    margin: 0 auto;
     height:100vh;
     gap:8px;
-    overflow-y:auto;
+    overflow:hidden;
   }
 
   .mainCard{
