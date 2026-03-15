@@ -161,6 +161,7 @@ align-items:center;
     align-items:center;
     justify-content:flex-start;
     width:95%;
+    height:100vh;
     margin:0 auto;
     gap:10px; /* space between cards, tweak as needed */
   }
@@ -170,7 +171,7 @@ align-items:center;
     width:100%;
     max-width:100%;
     margin-bottom:6px; /* space after main card */
-    padding:12px; /* smaller padding for mobile */
+    padding:10px; /* smaller padding for mobile */
     text-align:center;
   }
 
@@ -186,7 +187,7 @@ align-items:center;
   .statsGrid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:8px;
+    gap:10px;
   }
 
   /* Header & title stacking */
