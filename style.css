@@ -67,7 +67,7 @@ body.dark .titleBubble {
 .header{display:flex;justify-content:center;align-items:center;padding:15px;position:relative;}
 #themeBtn{position:absolute;right:20px;padding:8px 14px;border-radius:20px;border:none;background:#ff7fc2;color:white;cursor:pointer;}
 
-.container{max-width:900px;margin:auto;padding:15px;display:grid;gap:15px;}
+.container{max-width:900px;margin:0 auto;padding:15px;display:grid;gap:15px;}
 
 .mainCard{
 background:white;
@@ -88,7 +88,7 @@ align-items:center;
 #timer{font-size:32px;margin:8px 0;}
 
 .progress{width:90%;height:24px;background:#ffeaf4;border-radius:20px;margin:5px 0;position:relative;overflow:hidden;}
-#progressBar{height:100%;width:0%;background:linear-gradient(90deg,#ff9ccf,#ff4fa3);}
+#progressBar{height:100%;width:0%;background:linear-gradient(90deg,#ff9ccf,#ff4fa3); transition: width 0.9s linear;}
 #progressLabel{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-weight:bold;}
 
 .buttons{margin-top:8px;display:flex;gap:10px;}
@@ -244,6 +244,21 @@ gap:10px;
 #assistant{
 max-width:90vw;
 }
+  
+@media (max-width:600px){
+
+.header{
+flex-direction:column;
+gap:6px;
+}
+
+#themeBtn{
+position:static;
+margin-top:4px;
+}
+
+}
+
 }
 
 
