@@ -183,7 +183,7 @@ align-items:center;
   /* Stats grid 2 per row */
   .statsGrid{
     grid-template-columns:1fr 1fr;
-    gap:8px;
+    gap:4px;
   }
 
   /* Header stacks title + button */
