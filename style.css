@@ -1,0 +1,185 @@
+body{
+font-family:Arial;
+margin:0;
+background:linear-gradient(120deg,#ffd6ec,#ffe3f7,#fff5fb,#ffd6ec);
+background-size:400% 400%;
+animation:aurora 18s ease infinite;
+}
+
+@keyframes aurora{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+body.dark {
+  background: linear-gradient(120deg,#2b2e5b,#4b2a6b,#1b1c3b,#3c2b5a);
+  background-size: 400% 400%;
+  animation: aurora 25s ease infinite;
+  color: white; /* default text color */
+}
+
+/* Header stays pink */
+body.dark .logo {
+  color: #ff4fa3;
+}
+
+/* All cards including mainCard */
+body.dark .card,
+body.dark .mainCard {
+  background: #2a2a40; /* match all cards in dark mode */
+  color: white; /* ensure text inside cards is visible */
+}
+
+/* Main card specific elements */
+body.dark .mainCard label,
+body.dark .mainCard #timer,
+body.dark .mainCard .gardenLabel { /* Focus Garden label */
+  color: white; /* all text inside main card visible */
+}
+
+/* Inputs in dark mode */
+body.dark .mainCard input {
+  background: #3a3a5a; /* input background darker */
+  color: white; /* input text readable */
+  border: none;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+/* Assistant bubble and title bubble */
+body.dark .bubble {
+  background: #ff9fcf;
+  color: black;
+}
+
+body.dark .titleBubble {
+  background: #ffe5f0;
+  color: black;
+}
+
+
+.logo{color:#ff4fa3;}
+
+.header{display:flex;justify-content:center;align-items:center;padding:15px;position:relative;}
+#themeBtn{position:absolute;right:20px;padding:8px 14px;border-radius:20px;border:none;background:#ff7fc2;color:white;cursor:pointer;}
+
+.container{max-width:900px;margin:auto;padding:15px;display:grid;gap:15px;}
+
+.mainCard{
+background:white;
+padding:15px;
+border-radius:15px;
+width:97%;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.mainContent{width:100%;display:flex;flex-direction:column;align-items:center;}
+
+#catImg{width:100px;margin-bottom:8px;}
+
+.inputs{display:flex;justify-content:center;gap:15px;margin-bottom:8px;}
+
+#timer{font-size:32px;margin:8px 0;}
+
+.progress{width:90%;height:24px;background:#ffeaf4;border-radius:20px;margin:5px 0;position:relative;overflow:hidden;}
+#progressBar{height:100%;width:0%;background:linear-gradient(90deg,#ff9ccf,#ff4fa3);}
+#progressLabel{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-weight:bold;}
+
+.buttons{margin-top:8px;display:flex;gap:10px;}
+.buttons button{background:linear-gradient(90deg,#ff9ccf,#ff4fa3);border:none;color:white;padding:8px 16px;border-radius:20px;cursor:pointer;font-weight:bold;}
+
+.gardenCard{width:100%;margin-top:10px;}
+#flowerGarden{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+
+.flower{width:60px;animation:sway 3s ease-in-out infinite;transform-origin:bottom center;}
+.flower.bloom{animation:bloom .4s ease;}
+
+@keyframes bloom{0%{transform:scale(.6)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes sway{0%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}100%{transform:rotate(-2deg)}}
+
+.statsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:10px;}
+.card{background:white;padding:12px;border-radius:12px;}
+
+#assistant{position:fixed;bottom:20px;right:20px;display:flex;gap:10px;cursor:grab;}
+#assistantCat{width:100px;}
+.assistantRight{display:flex;flex-direction:column;}
+.bubble{background:#ffd6ec;padding:10px;border-radius:15px;font-family:"Comic Sans MS";}
+.titleBubble{background:#fff2fa;padding:4px 8px;border-radius:10px;font-size:11px;margin-top:4px;text-align:center;}
+
+.xpBar{width:100%;height:12px;background:#eee;border-radius:10px;overflow:hidden;}
+#xpFill{height:100%;width:0%;background:linear-gradient(90deg,#ffd36b,#ff9ccf);}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px; /* pushes the whole block down */
+}
+
+.catKaomoji {
+  font-size: 24px; /* bigger cat face */
+  line-height: 1; /* compact spacing */
+  margin-top: 4px; /* space between kaomoji and text */
+}
+
+.header .logo {
+  font-size: 32px; /* your pink Focus Track+ title */
+  color: #ff4fa3;
+  margin: 0;
+}
+
+/* Keep a fixed space for flowers so the card doesn’t jump */
+#flowerGarden {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 80px; /* fixed space for flowers */
+  align-items: flex-end; /* make flowers grow from bottom */
+  justify-content: center;
+  overflow: hidden; /* prevents expanding beyond this height */
+}
+
+/* Bigger flower images */
+.flower {
+  width: 90px; /* increase from 55px */
+  transition: transform 0.3s;
+}
+
+
+/* Make container adapt on mobile */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+  display: grid;
+  gap: 12px;
+}
+
+/* Smaller font on mobile */
+@media (max-width: 500px) {
+  .header .logo {
+    font-size: 26px;
+  }
+
+  .catKaomoji {
+    font-size: 20px;
+  }
+
+  .mainCard, .card {
+    width: 100%; /* take full screen width */
+  }
+
+  .inputs {
+    flex-direction: column; /* stack focus/break inputs */
+    gap: 8px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+

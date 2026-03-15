@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Focus Track+</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="headerTitle">
+    <div class="catKaomoji">ฅ^>⩊<^ฅ</div>
+    <h1 class="logo">Focus Track+</h1>
+  </div>
+  <button id="themeBtn" onclick="toggleTheme()">🌞 Day Mode</button>
+</header>
+
+<div class="container">
+
+<!-- MAIN CARD -->
+<div class="mainCard">
+
+<div class="mainContent">
+
+<img id="catImg" src="cat_focus.gif">
+
+<div class="inputs">
+<label>Focus
+<input id="focusInput" type="number" value="25">
+</label>
+<label>Break
+<input id="breakInput" type="number" value="5">
+</label>
+</div>
+
+<h2 id="timer">25:00</h2>
+
+<div class="progress">
+<div id="progressBar"></div>
+<span id="progressLabel">0%</span>
+</div>
+
+<div class="buttons">
+<button id="startBtn">Start Focus</button>
+<button id="researchBtn">Research Mode OFF</button>
+</div>
+
+</div>
+
+<!-- Focus Garden below main content -->
+<div class="gardenCard">
+<h3>Focus Garden</h3>
+<div id="flowerGarden"></div>
+</div>
+
+</div>
+
+<!-- STATS GRID -->
+<div class="statsGrid">
+
+<div class="card">
+<h3>Focus XP</h3>
+<p id="xpDisplay">0 XP</p>
+</div>
+
+<div class="card">
+<h3>Level</h3>
+<p id="levelText">Level 1</p>
+<div class="xpBar">
+<div id="xpFill"></div>
+</div>
+<p id="xpText">0 / 50 XP</p>
+</div>
+
+<div class="card">
+<h3>Weekly Stats</h3>
+<p id="weeklyStats">0 sessions</p>
+</div>
+
+<div class="card">
+<h3>Distractions</h3>
+<p id="distractionCount">0</p>
+<select id="distractionSelect">
+<option>Social Media</option>
+<option>Boredom</option>
+<option>Notifications</option>
+<option>Other</option>
+</select>
+<button id="logBtn">Log</button>
+</div>
+
+</div> <!-- end statsGrid -->
+
+</div> <!-- end container -->
+
+<!-- Assistant Cat -->
+<div id="assistant">
+<img id="assistantCat" src="assistant_cat.gif">
+<div class="assistantRight">
+<div class="bubble">
+<p id="assistantText">Let's focus :3</p>
+</div>
+<div class="titleBubble">
+<p id="catTitle">Beginner Focuser</p>
+</div>
+</div>
+</div>
+
+<!-- Audio -->
+<audio id="meow" src="meow.mp3"></audio>
+<audio id="purr" src="purr.mp3"></audio>
+<audio id="hiss" src="hiss.mp3"></audio>
+<audio id="whimper" src="whimper.mp3"></audio>
+
+<script src="app.js"></script>
+
+</body>
+</html>
