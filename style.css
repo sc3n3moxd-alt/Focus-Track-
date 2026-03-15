@@ -167,11 +167,18 @@ align-items:center;
 
   /* Main card scales to container width */
   .mainCard{
-    width:100%;
-    max-width:100%;
+    width:90%;
+    max-width:90%;
     padding:12px;
     margin:6px 0;
   }
+
+  .card, .statsGrid{
+    width:100%
+    max-width:100%
+  }
+
+}
 
   /* Stats grid 2 per row */
   .statsGrid{
@@ -215,7 +222,7 @@ align-items:center;
   .bubble{
     max-width:180px;
     font-size:14px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS';
   }
 
   /* Timer size */
