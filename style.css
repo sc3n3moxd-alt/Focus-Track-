@@ -169,8 +169,8 @@ align-items:center;
   .mainCard{
     width:90%;
     max-width:90%;
-    padding:8px;
-    margin:4px 0;
+    padding:4px;
+    margin:2px 0;
   }
 
   .card, .statsGrid{
