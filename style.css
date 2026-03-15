@@ -170,7 +170,7 @@ align-items:center;
   .mainCard{
     width:100%;
     max-width:100%;
-    margin-bottom:4px; /* space after main card */
+    margin-bottom:10px; /* space after main card */
     padding:10px; /* smaller padding for mobile */
     text-align:center;
   }
