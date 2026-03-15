@@ -64,7 +64,7 @@ body.dark .titleBubble {
 .header{display:flex;justify-content:center;align-items:center;padding:15px;position:relative;}
 #themeBtn{position:absolute;right:20px;padding:8px 14px;border-radius:20px;border:none;background:#ff7fc2;color:white;cursor:pointer;}
 
-.container{max-width:900px;margin:0 auto;padding:15px;display:grid;gap:15px;}
+.container{max-width:900px;margin:auto;padding:15px;display:grid;gap:15px;}
 
 .mainCard{
 background:white;
@@ -148,113 +148,84 @@ align-items:center;
   transition: transform 0.3s;
 }
 
-
-/* Make container adapt on mobile */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 10px;
-  display: grid;
-  gap: 12px;
-}
-
-/* Smaller font on mobile */
-@media (max-width: 500px) {
-  .header .logo {
-    font-size: 26px;
-  }
-
-  .catKaomoji {
-    font-size: 20px;
-  }
-
-  .mainCard, .card {
-    width: 100%; /* take full screen width */
-  }
-
-  .inputs {
-    flex-direction: column; /* stack focus/break inputs */
-    gap: 8px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-#assistant{
-  position:fixed
-  bottom:20px;
-  right:20px;
-  touch-action:none;
-  user-select:none;
-}
-/* MOBILE FIXES */
+/* ===========================
+   MOBILE POLISH: FocusTrack+
+   Applies only on screens ≤600px
+=========================== */
 @media (max-width:600px){
 
-#assistantCat{
-width:95px;
-}
+  /* Center container and adjust spacing */
+  .container{
+    max-width:95%;
+    margin:0 auto;
+    padding:12px;
+    display:grid;
+    gap:12px;
+  }
 
-.bubble{
-max-width:190px;
-font-size:15px;
-}
+  /* Main card scales to container width */
+  .mainCard{
+    width:100%;
+    max-width:100%;
+  }
 
-#assistant{
-bottom:25px;
-right:15px;
-}
+  /* Stats grid 2 per row */
+  .statsGrid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
 
-}
+  /* Header stacks title + button */
+  .header{
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+  }
 
-/* MOBILE LAYOUT FIX */
-@media (max-width:600px){
+  /* Day/Night mode button on mobile */
+  #themeBtn{
+    position:static;
+    margin-top:4px;
+  }
 
-.container{
-grid-template-columns:1fr;
-padding:12px;
-}
+  /* Flower garden space */
+  #flowerGarden{
+    min-height:130px;
+  }
 
-.mainCard{
-width:100%;
-max-width:100%;
-}
+  /* Prevent horizontal scroll */
+  body{
+    overflow-x:hidden;
+  }
 
-.statsGrid{
-grid-template-columns:1fr 1fr;
-}
+  /* Cat assistant size */
+  #assistantCat, #catImg{
+    width:90px;
+  }
 
-#flowerGarden{
-min-height:120px;
-}
+  /* Cat assistant speech bubble */
+  .bubble{
+    max-width:180px;
+    font-size:14px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
 
-body{
-overflow-x:hidden;
-}
+  /* Timer size */
+  #timer{
+    font-size:28px;
+  }
 
-.container{
-gap:10px;
-}
+  /* Inputs width smaller */
+  .inputs input{
+    width:50px;
+  }
 
-#assistant{
-max-width:90vw;
-}
-  
-@media (max-width:600px){
+  /* Smooth progress bar */
+  #progressBar{
+    transition: width 0.9s linear;
+  }
 
-.header{
-flex-direction:column;
-gap:6px;
-}
 
-#themeBtn{
-position:static;
-margin-top:4px;
-}
-
-}
 
 }
 
