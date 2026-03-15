@@ -59,6 +59,7 @@ themeBtn.onclick = function () {
 
 // START FOCUS
 startBtn.onclick = function () {
+  play("meow");
   clearInterval(timer);
   focusTime = focusInput.value * 60;
   breakTime = breakInput.value * 60;
@@ -66,7 +67,6 @@ startBtn.onclick = function () {
   onBreak = false;
   catImg.src = "cat_focus.gif";
   assistantSay("Focus session started!");
-  play("meow");
   timer = setInterval(tick, 1000);
 };
 
