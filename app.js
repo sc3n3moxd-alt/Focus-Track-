@@ -53,6 +53,7 @@ startBtn.onclick = function () {
   onBreak = false;
   catImg.src = "cat_focus.gif";
   assistantSay("Focus session started!");
+  play("meow");
   timer = setInterval(tick, 1000);
 };
 
@@ -218,6 +219,28 @@ function updateWeeklyStats() {
   const count = sessions.filter(d => new Date(d) >= weekAgo).length;
   weeklyStatsDisplay.innerText = `${count} focus sessions`;
 }
+
+cat.addEventListener("touchstart", (e) => {
+  isDragging = true;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - cat.getBoundingClientRect().left;
+  offsetY = touch.clientY - cat.getBoundingClientRect().top;
+});
+
+document.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+  const touch = e.touches[0];
+  cat.style.left = touch.clientX - offsetX + "px";
+  cat.style.top = touch.clientY - offsetY + "px";
+});
+
+document.addEventListener("touchend", () => { isDragging = false; });
+
+// --- PETTING (tap) ---
+cat.addEventListener("click", () => {
+  assistantSay("Meow~ that tickles~");
+  play("meow"); // your meow sound
+});
 
 // INITIALIZE
 updateWeeklyStats();
