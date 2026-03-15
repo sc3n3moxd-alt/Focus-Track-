@@ -190,5 +190,58 @@ align-items:center;
   touch-action:none;
   user-select:none;
 }
+/* MOBILE FIXES */
+@media (max-width:600px){
+
+#assistantCat{
+width:95px;
+}
+
+.bubble{
+max-width:190px;
+font-size:15px;
+}
+
+#assistant{
+bottom:25px;
+right:15px;
+}
+
+}
+
+/* MOBILE LAYOUT FIX */
+@media (max-width:600px){
+
+.container{
+grid-template-columns:1fr;
+padding:12px;
+}
+
+.mainCard{
+width:100%;
+max-width:100%;
+}
+
+.statsGrid{
+grid-template-columns:1fr 1fr;
+}
+
+#flowerGarden{
+min-height:120px;
+}
+
+body{
+overflow-x:hidden;
+}
+
+.container{
+gap:10px;
+}
+
+#assistant{
+max-width:90vw;
+}
+}
+
 
 
