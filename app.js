@@ -16,6 +16,13 @@ const xpDisplay = document.getElementById("xpDisplay");
 const xpFill = document.getElementById("xpFill");
 const xpText = document.getElementById("xpText");
 const levelText = document.getElementById("levelText");
+const sounds = ["meow", "purr", "hiss", "whimper"];
+sounds.forEach(id => {
+  const a = document.getElementById(id);
+  a.load(); // preload audio
+});
+
+
 
 // STATE
 let researchMode = false;
@@ -27,12 +34,18 @@ let level = Number(localStorage.getItem("level")) || 1;
 let sessions = JSON.parse(localStorage.getItem("sessions")) || [];
 
 // SOUND
+let userInteracted = false;
+
+document.addEventListener("click", () => { userInteracted = true; }, { once: true });
+document.addEventListener("touchstart", () => { userInteracted = true; }, { once: true });
+
 function play(id) {
   const a = document.getElementById(id);
-  if (!a) return;
+  if (!a || !userInteracted) return; // don’t play until user interacts
   a.currentTime = 0;
   a.play().catch(() => {});
 }
+
 
 function assistantSay(text) {
   assistantText.innerText = text;
@@ -220,27 +233,53 @@ function updateWeeklyStats() {
   weeklyStatsDisplay.innerText = `${count} focus sessions`;
 }
 
+const cat = document.getElementById("assistantCat");
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+// --- MOUSE EVENTS (desktop) ---
+cat.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  offsetX = e.clientX - cat.getBoundingClientRect().left;
+  offsetY = e.clientY - cat.getBoundingClientRect().top;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  cat.style.position = "fixed"; // ensure it moves over content
+  cat.style.left = e.clientX - offsetX + "px";
+  cat.style.top = e.clientY - offsetY + "px";
+});
+
+document.addEventListener("mouseup", () => { isDragging = false; });
+
+// --- TOUCH EVENTS (mobile) ---
 cat.addEventListener("touchstart", (e) => {
   isDragging = true;
   const touch = e.touches[0];
   offsetX = touch.clientX - cat.getBoundingClientRect().left;
   offsetY = touch.clientY - cat.getBoundingClientRect().top;
+  e.preventDefault(); // prevent scrolling while dragging
 });
 
 document.addEventListener("touchmove", (e) => {
   if (!isDragging) return;
   const touch = e.touches[0];
+  cat.style.position = "fixed"; 
   cat.style.left = touch.clientX - offsetX + "px";
   cat.style.top = touch.clientY - offsetY + "px";
+  e.preventDefault(); // prevent scrolling
 });
 
 document.addEventListener("touchend", () => { isDragging = false; });
 
-// --- PETTING (tap) ---
+// --- PETTING (tap or click) ---
 cat.addEventListener("click", () => {
   assistantSay("Meow~ that tickles~");
   play("meow"); // your meow sound
 });
+
 
 // INITIALIZE
 updateWeeklyStats();
