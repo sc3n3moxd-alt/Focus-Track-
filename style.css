@@ -191,7 +191,7 @@ align-items:center;
   .header{
     flex-direction:column;
     align-items:center;
-    gap:6px;
+    gap:4px;
   }
 
   /* Day/Night mode button on mobile */
