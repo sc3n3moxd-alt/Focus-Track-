@@ -171,6 +171,7 @@ align-items:center;
     max-width:90%;
     padding:4px;
     margin:2px 0;
+    margin-bottom:4px;
   }
 
   .card, .statsGrid{
