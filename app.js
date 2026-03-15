@@ -179,23 +179,26 @@ document.getElementById("assistantCat").onclick = function () {
 };
 
 // DRAG CAT
-const cat = document.getElementById("assistantCat")
+const assistant = document.getElementById("assistant")
 
 let dragging=false
 let offsetX=0
 let offsetY=0
 
 function startDrag(x,y){
-  const rect=cat.getBoundingClientRect()
+  const rect=assistant.getBoundingClientRect()
   offsetX=x-rect.left
   offsetY=y-rect.top
   dragging=true
 }
 
-function moveCat(x,y){
+function moveDrag(x,y){
   if(!dragging)return
-  cat.style.left=(x-offsetX)+"px"
-  cat.style.top=(y-offsetY)+"px"
+
+  assistant.style.left=(x-offsetX)+"px"
+  assistant.style.top=(y-offsetY)+"px"
+  assistant.style.right="auto"
+  assistant.style.bottom="auto"
 }
 
 function stopDrag(){
@@ -203,25 +206,25 @@ function stopDrag(){
 }
 
 /* desktop */
-cat.addEventListener("mousedown",e=>{
+assistant.addEventListener("mousedown",e=>{
   startDrag(e.clientX,e.clientY)
 })
 
 document.addEventListener("mousemove",e=>{
-  moveCat(e.clientX,e.clientY)
+  moveDrag(e.clientX,e.clientY)
 })
 
 document.addEventListener("mouseup",stopDrag)
 
 /* mobile */
-cat.addEventListener("touchstart",e=>{
+assistant.addEventListener("touchstart",e=>{
   const t=e.touches[0]
   startDrag(t.clientX,t.clientY)
 })
 
 document.addEventListener("touchmove",e=>{
   const t=e.touches[0]
-  moveCat(t.clientX,t.clientY)
+  moveDrag(t.clientX,t.clientY)
 })
 
 document.addEventListener("touchend",stopDrag)
