@@ -150,7 +150,7 @@ document.getElementById("logBtn").onclick = function () {
   localStorage.setItem("distractions", distractions);
   distractionCount.innerText = distractions;
   assistantSay("Stay focused!");
-  play("hiss");
+  play("whimper");
   damageFlower();
 };
 
