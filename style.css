@@ -184,14 +184,14 @@ align-items:center;
   /* Stats grid 2 per row */
   .statsGrid{
     grid-template-columns:1fr 1fr;
-    gap:4px;
+    gap:6px;
   }
 
   /* Header stacks title + button */
   .header{
     flex-direction:column;
     align-items:center;
-    gap:4px;
+    gap:6px;
   }
 
   /* Day/Night mode button on mobile */
